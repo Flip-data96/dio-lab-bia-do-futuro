@@ -1,0 +1,8 @@
+{
+  "perfil_investidor": {
+    "nome": "João Silva",
+    "valor_aporte_inicial": 20000.00,
+    "tempo_investimento_meses": 36,
+    "tipo_aporte": "Único"
+  }
+}
