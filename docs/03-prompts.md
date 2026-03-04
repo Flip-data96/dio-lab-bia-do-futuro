@@ -24,7 +24,7 @@ Sugerir a opção mais rentável considerando:
 -Liquidez
 -Imposto de renda
 -Perfil comportamental inferido
--Gerar ranking final justificado tecnicamente.
+-Gerar ranking final com o top 3 justificado tecnicamente.
 
 REGRAS:
 -Filtrar por aporte mínimo.
@@ -34,7 +34,7 @@ Aplicar IR regressivo:
 -181–360 → 20%
 -361–720 → 17,5%
 -720 → 15%
--Considerar IPCA médio de 5% a.a. se necessário.
+-Considerar IPCA médio de 4,5% a.a. se necessário.
 Priorizar:
 -Maior rentabilidade líquida
 -Compatibilidade com prazo
