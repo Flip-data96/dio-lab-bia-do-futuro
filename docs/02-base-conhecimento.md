@@ -95,133 +95,218 @@ data/produtos_financeiros.json
 
 ```
 ``` json
-[
-  {
-    "titulo": "Tesouro Selic",
-    "rentabilidade": "Taxa Selic atual (15,00% a.a.)",
-    "prazo_resgate": "D+1",
-    "data_vencimento": "2029-03-01",
-    "aporte_minimo": "R$ 30,00",
-    "liquidez": "Diária",
-    "cobra_irpf": true,
-    "tabela_irpf_regressiva": {
-      "até_180_dias": "22,5%",
-      "181_a_360_dias": "20%",
-      "361_a_720_dias": "17,5%",
-      "acima_720_dias": "15%"
+ [
+    {
+      "id": "tesouro_selic",
+      "nome": "Tesouro Selic",
+      "categoria": "titulo_publico",
+      "rentabilidade": {
+        "tipo_taxa": "pos_fixada",
+        "indexador": {
+          "nome": "SELIC",
+          "valor_atual_anual": 0.15,
+          "percentual_aplicado": 1.0
+        },
+        "taxa_fixa_anual": 0.0
+      },
+      "prazo": {
+        "vencimento_data": "2029-03-01",
+        "liquidez_dias": 1
+      },
+      "aporte_minimo": 30.00,
+      "tributacao": {
+        "tipo": "ir_regressivo",
+        "tabela": [
+          { "dias_max": 180, "aliquota": 0.225 },
+          { "dias_max": 360, "aliquota": 0.20 },
+          { "dias_max": 720, "aliquota": 0.175 },
+          { "dias_max": null, "aliquota": 0.15 }
+        ]
+      }
+    },
+    {
+      "id": "tesouro_ipca",
+      "nome": "Tesouro IPCA+",
+      "categoria": "titulo_publico",
+      "rentabilidade": {
+        "tipo_taxa": "hibrida",
+        "indexador": {
+          "nome": "IPCA",
+          "valor_atual_anual": 0.045,
+          "percentual_aplicado": 1.0
+        },
+        "taxa_fixa_anual": 0.0743
+      },
+      "prazo": {
+        "vencimento_data": "2035-05-15",
+        "liquidez_dias": 1
+      },
+      "aporte_minimo": 30.00,
+      "tributacao": {
+        "tipo": "ir_regressivo",
+        "tabela": [
+          { "dias_max": 180, "aliquota": 0.225 },
+          { "dias_max": 360, "aliquota": 0.20 },
+          { "dias_max": 720, "aliquota": 0.175 },
+          { "dias_max": null, "aliquota": 0.15 }
+        ]
+      }
+    },
+    {
+      "id": "tesouro_prefixado",
+      "nome": "Tesouro Prefixado",
+      "categoria": "titulo_publico",
+      "rentabilidade": {
+        "tipo_taxa": "prefixada",
+        "indexador": null,
+        "taxa_fixa_anual": 0.1262
+      },
+      "prazo": {
+        "vencimento_data": "2029-01-01",
+        "liquidez_dias": 1
+      },
+      "aporte_minimo": 30.00,
+      "tributacao": {
+        "tipo": "ir_regressivo",
+        "tabela": [
+          { "dias_max": 180, "aliquota": 0.225 },
+          { "dias_max": 360, "aliquota": 0.20 },
+          { "dias_max": 720, "aliquota": 0.175 },
+          { "dias_max": null, "aliquota": 0.15 }
+        ]
+      }
+    },
+    {
+      "id": "cdb_cdi",
+      "nome": "CDB CDI",
+      "categoria": "renda_fixa_bancaria",
+      "rentabilidade": {
+        "tipo_taxa": "pos_fixada",
+        "indexador": {
+          "nome": "CDI",
+          "valor_atual_anual": 0.15,
+          "percentual_aplicado": 1.0
+        },
+        "taxa_fixa_anual": 0.0
+      },
+      "prazo": {
+        "vencimento_anos_min": 0.5,
+        "vencimento_anos_max": 5,
+        "liquidez_variavel": true
+      },
+      "aporte_minimo": 1000.00,
+      "tributacao": {
+        "tipo": "ir_regressivo",
+        "tabela": [
+          { "dias_max": 180, "aliquota": 0.225 },
+          { "dias_max": 360, "aliquota": 0.20 },
+          { "dias_max": 720, "aliquota": 0.175 },
+          { "dias_max": null, "aliquota": 0.15 }
+        ]
+      }
+    },
+    {
+      "id": "lci_cdi",
+      "nome": "LCI CDI",
+      "categoria": "renda_fixa_isenta",
+      "rentabilidade": {
+        "tipo_taxa": "pos_fixada",
+        "indexador": {
+          "nome": "CDI",
+          "valor_atual_anual": 0.1505,
+          "percentual_aplicado": 1.0
+        },
+        "taxa_fixa_anual": 0.0
+      },
+      "prazo": {
+        "vencimento_anos_min": 1,
+        "vencimento_anos_max": 5,
+        "carencia_dias": 90
+      },
+      "aporte_minimo": 5000.00,
+      "tributacao": {
+        "tipo": "isento"
+      }
+    },
+    {
+      "id": "lca_cdi",
+      "nome": "LCA CDI",
+      "categoria": "renda_fixa_isenta",
+      "rentabilidade": {
+        "tipo_taxa": "pos_fixada",
+        "indexador": {
+          "nome": "CDI",
+          "valor_atual_anual": 0.146,
+          "percentual_aplicado": 1.0
+        },
+        "taxa_fixa_anual": 0.0
+      },
+      "prazo": {
+        "vencimento_anos_min": 1,
+        "vencimento_anos_max": 5,
+        "carencia_dias": 90
+      },
+      "aporte_minimo": 5000.00,
+      "tributacao": {
+        "tipo": "isento"
+      }
+    },
+    {
+      "id": "cri_ipca",
+      "nome": "CRI IPCA+6%",
+      "categoria": "renda_fixa_estruturada",
+      "rentabilidade": {
+        "tipo_taxa": "hibrida",
+        "indexador": {
+          "nome": "IPCA",
+          "valor_atual_anual": 0.045,
+          "percentual_aplicado": 1.0
+        },
+        "taxa_fixa_anual": 0.06
+      },
+      "prazo": {
+        "vencimento_anos_min": 2,
+        "vencimento_anos_max": 10
+      },
+      "aporte_minimo": 10000.00,
+      "tributacao": {
+        "tipo": "isento"
+      }
+    },
+    {
+      "id": "cra_prefixado",
+      "nome": "CRA 12% a.a.",
+      "categoria": "renda_fixa_estruturada",
+      "rentabilidade": {
+        "tipo_taxa": "prefixada",
+        "indexador": null,
+        "taxa_fixa_anual": 0.12
+      },
+      "prazo": {
+        "vencimento_anos_min": 2,
+        "vencimento_anos_max": 10
+      },
+      "aporte_minimo": 10000.00,
+      "tributacao": {
+        "tipo": "isento"
+      }
     }
-  },
-  {
-    "titulo": "Tesouro IPCA+",
-    "rentabilidade": "IPCA + 5% a.a. média",
-    "prazo_resgate": "D+1",
-    "data_vencimento": "2035-05-15",
-    "aporte_minimo": "R$ 30,00",
-    "liquidez": "Diária",
-    "cobra_irpf": true,
-    "tabela_irpf_regressiva": {
-      "até_180_dias": "22,5%",
-      "181_a_360_dias": "20%",
-      "361_a_720_dias": "17,5%",
-      "acima_720_dias": "15%"
-    }
-  },
-  {
-    "titulo": "Tesouro Prefixado",
-    "rentabilidade": "Taxa prefixada (~11% a.a. média)",
-    "prazo_resgate": "D+1",
-    "data_vencimento": "2029-01-01",
-    "aporte_minimo": "R$ 30,00",
-    "liquidez": "Diária",
-    "cobra_irpf": true,
-    "tabela_irpf_regressiva": {
-      "até_180_dias": "22,5%",
-      "181_a_360_dias": "20%",
-      "361_a_720_dias": "17,5%",
-      "acima_720_dias": "15%"
-    }
-  },
-  {
-    "titulo": "CDB (Certificado de Depósito Bancário)",
-    "rentabilidade": "CDI pós-fixado (atrelado à Selic atual de 15,00% a.a.), Prefixado ou IPCA+",
-    "prazo_resgate": "Variável (D+0 até vencimento)",
-    "data_vencimento": "6 meses a 5 anos",
-    "aporte_minimo": "R$ 1.000,00 (varia por banco)",
-    "liquidez": "Diária ou apenas no vencimento",
-    "cobra_irpf": true,
-    "tabela_irpf_regressiva": {
-      "até_180_dias": "22,5%",
-      "181_a_360_dias": "20%",
-      "361_a_720_dias": "17,5%",
-      "acima_720_dias": "15%"
-    }
-  },
-  {
-    "titulo": "LCI (Letra de Crédito Imobiliário)",
-    "rentabilidade": "CDI (~11% a.a. média)",
-    "prazo_resgate": "Mínimo 90 dias",
-    "data_vencimento": "1 a 5 anos",
-    "aporte_minimo": "R$ 5.000,00",
-    "liquidez": "Somente no vencimento",
-    "cobra_irpf": false,
-    "aliquota_irpf": "Isento"
-  },
-  {
-    "titulo": "LCA (Letra de Crédito do Agronegócio)",
-    "rentabilidade": "CDI (~11% a.a. média)",
-    "prazo_resgate": "Mínimo 90 dias",
-    "data_vencimento": "1 a 5 anos",
-    "aporte_minimo": "R$ 5.000,00",
-    "liquidez": "Somente no vencimento",
-    "cobra_irpf": false,
-    "aliquota_irpf": "Isento"
-  },
-  {
-    "titulo": "CRI (Certificado de Recebíveis Imobiliários)",
-    "rentabilidade": "IPCA + 6% a.a. média",
-    "prazo_resgate": "Até vencimento",
-    "data_vencimento": "2 a 10 anos",
-    "aporte_minimo": "R$ 10.000,00",
-    "liquidez": "Somente no vencimento",
-    "cobra_irpf": false,
-    "aliquota_irpf": "Isento para pessoa física"
-  },
-  {
-    "titulo": "CRA (Certificado de Recebíveis do Agronegócio)",
-    "rentabilidade": "IPCA + 6% a.a. média",
-    "prazo_resgate": "Até vencimento",
-    "data_vencimento": "2 a 10 anos",
-    "aporte_minimo": "R$ 10.000,00",
-    "liquidez": "Somente no vencimento",
-    "cobra_irpf": false,
-    "aliquota_irpf": "Isento para pessoa física"
-  },
-  {
-    "titulo": "Debêntures Incentivadas",
-    "rentabilidade": "IPCA + 5,5% a.a. média",
-    "prazo_resgate": "Até vencimento",
-    "data_vencimento": "3 a 15 anos",
-    "aporte_minimo": "R$ 1.000,00",
-    "liquidez": "Somente no vencimento",
-    "cobra_irpf": false,
-    "aliquota_irpf": "Isento para pessoa física"
-  },
-  {
-    "titulo": "Debêntures Comuns",
-    "rentabilidade": "IPCA + 6% a.a. média",
-    "prazo_resgate": "Até vencimento",
-    "data_vencimento": "3 a 10 anos",
-    "aporte_minimo": "R$ 1.000,00",
-    "liquidez": "Somente no vencimento",
-    "cobra_irpf": true,
-    "tabela_irpf_regressiva": {
-      "até_180_dias": "22,5%",
-      "181_a_360_dias": "20%",
-      "361_a_720_dias": "17,5%",
-      "acima_720_dias": "15%"
+  ],
+
+  "simulacao_padrao": {
+    "parametros_entrada": {
+      "valor_inicial": 10000,
+      "prazo_anos": 2,
+      "regime_juros": "composto"
+    },
+    "motor_calculo": {
+      "formula_valor_futuro": "VF = VP * (1 + i)^t",
+      "calculo_taxa_efetiva": "i = (indexador.valor_atual_anual * percentual_aplicado) + taxa_fixa_anual",
+      "calculo_ir": "IR incide apenas sobre rendimento conforme tabela regressiva",
+      "calculo_valor_liquido": "valor_liquido = valor_bruto - imposto"
     }
   }
-]
+}
 ```
 
 ---
