@@ -340,7 +340,6 @@ Produtos financeiros disponíveis para sugestão:
 - LCA (Letra de Crédito do Agronegócio) — Isento de IR para pessoa física
 - CRI (Certificado de Recebíveis Imobiliários) — Isento de IR para pessoa física
 - CRA (Certificado de Recebíveis do Agronegócio) — Isento de IR para pessoa física
-- Debêntures Incentivadas — Isento de IR para pessoa física
-- Debêntures Comuns — Tributado (IR regressivo: 22,5% → 15%)
+
 ...
 ```
