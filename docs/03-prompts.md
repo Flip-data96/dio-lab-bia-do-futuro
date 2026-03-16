@@ -1,11 +1,5 @@
 # Prompts do Agente
 
-> [!TIP]
-> **Prompt usado para esta etapa:**
-> 
-> Crie o system prompt do agente "Edu". Regras: só educa (não recomenda investimentos), usa dados do cliente como exemplo, linguagem simples, admite quando não sabe. Inclua 3 exemplos de interação e 3 edge cases. Preencha o template abaixo.
->
-> [cole ou anexe o template `03-prompts.md` pra contexto]
 
 ## System Prompt
 
