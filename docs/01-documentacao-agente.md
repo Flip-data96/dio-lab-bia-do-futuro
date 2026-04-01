@@ -5,7 +5,7 @@
 ### Problema
 > Qual problema financeiro seu agente resolve?
 
-Controle de gastor e indicar a opção mais rentável de invesimento em renda fixa de acordo com o tempo que o investidor pretende deixar o capital investido
+Indicar a opção mais rentável de invesimento em renda fixa de acordo com o tempo que o investidor pretende deixar o capital investido
 
 ### Solução
 > Como o agente resolve esse problema de forma proativa?
